@@ -6,7 +6,8 @@ class PagesController < ApplicationController
     @markers = @alerts.geocoded.map do |alert|
       {
         lat: alert.latitude,
-        lng: alert.longitude
+        lng: alert.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { alert: alert })
       }
     end
   end
