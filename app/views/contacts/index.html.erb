@@ -1,1 +1,7 @@
 <h1>Contacts index page</h1>
+
+<% @contacts.each do |contact| %>
+<%= contact.first_name %>
+<%= contact.last_name %>
+<%= contact.emergency_contact %>
+<% end %>
