@@ -3,7 +3,7 @@
   Log In
 </button>
 
-<!-- login Modal -->
+<!-- Login Modal -->
 <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -14,8 +14,7 @@
         </button>
       </div>
       <div class="modal-body">
-
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
                         required: false,
@@ -26,22 +25,12 @@
                         input_html: { autocomplete: "current-password" } %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
-          <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Log in", class: "btn btn-primary" %>
           </div>
-          <% end %>
-        <!-- <a type="button" class="link" data-toggle="modal" data-target="#SignupModal" data-dismiss="modal">
-              Sign up
-        </a> -->
-        <div>
-          <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
