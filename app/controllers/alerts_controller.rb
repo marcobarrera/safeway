@@ -14,7 +14,6 @@ class AlertsController < ApplicationController
   end
 
   def notify
-    @alert =
   end
 
   def share_location
@@ -23,6 +22,6 @@ class AlertsController < ApplicationController
   private
 
   def alert_params
-    params.require(:alert).permit(:category, :longitude, :latitude; :description, :expiration_time, :status, :address)
+    params.require(:alert).permit(:category, :longitude, :latitude, :description, :expiration_time, :status, :address)
   end
 end
