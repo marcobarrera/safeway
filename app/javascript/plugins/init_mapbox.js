@@ -148,8 +148,12 @@ const initMapbox = () => {
 
     // addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+    const geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+                                      mapboxgl: mapboxgl })
+    geocoder.on('result', (event) => {
+      window.getRoute(event.result.center)
+    })
+    map.addControl(geocoder);
   }
 };
 
