@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
   before_action :find_address, only: [:update, :destroy]
 
   def index
-    @addresses = Address.all
+  @addresses = Address.all
   end
 
   def new
