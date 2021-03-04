@@ -1,29 +1,23 @@
 class AddressesController < ApplicationController
-
-  before_action :find_address, only: [:update, :destroy]
+  before_action :find_address, only: %i[update destroy]
 
   def index
-  @addresses = Address.all
+    @addresses = Address.all
   end
 
   def new
     @address = Address.new
   end
-  
-  
+
   def create
     @address = Address.new(address_params)
     @address.user = current_user
-    
-    if @address.save
-      redirect_to addresses_path
-    else 
-    end
-    
+
+    redirect_to addresses_path if @address.save
   end
 
   def update
-    @address.update (address_params)
+    @address.update(address_params)
   end
 
   def destroy

@@ -1,6 +1,5 @@
 class ContactsController < ApplicationController
-  
-  before_action :find_contact, only: [:update, :destroy]
+  before_action :find_contact, only: %i[update destroy]
 
   def index
     @contacts = Contact.all
@@ -9,20 +8,16 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
   end
-  
 
   def create
     @contact = Contact.new(contact_params)
     @contact.user = current_user
-    
-    if @contact.save
-      redirect_to contacts_path
-    else 
-    end
+
+    redirect_to contacts_path if @contact.save
   end
 
   def update
-    @contact.update (contact_params)
+    @contact.update(contact_params)
   end
 
   def destroy
@@ -38,5 +33,4 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :phone_number, :email, :emergency_contact)
   end
-
 end
