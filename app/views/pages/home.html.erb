@@ -1,8 +1,15 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<div id="map"
+     style="width: 100vw; height: 100vh;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+</div>
 
 <%= render "sidebar" %>
 <%= render "alert_modal" %>
 <%= render "trip_review" %>
 <%= render "create_alert" %>
 <%= render "describe_incident" %>
+
