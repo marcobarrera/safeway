@@ -1,6 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import { data } from 'jquery';
 
 // const addMarkersToMap = (map, markers) => {
 //   markers.forEach((marker) => {
@@ -14,14 +15,25 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 // };
 
 const fitMapToMarkers = (map, markers) => {
-  if (markers.length) {
-    const bounds = new mapboxgl.LngLatBounds();
-    markers.forEach((marker) => bounds.extend([marker.lng, marker.lat]));
-    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-  }
+	if (markers.length) {
+		const bounds = new mapboxgl.LngLatBounds();
+		markers.forEach((marker) => bounds.extend([ marker.lng, marker.lat ]));
+		map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+	}
 };
 
-const initMapbox = () => {
+let myCoords = {};
+
+const myLocationButton = document.getElementById('myLocation');
+const myLocation = myLocationButton.addEventListener('click', (event) => {
+	navigator.geolocation.getCurrentPosition((data) => {
+		myCoords['myLat'] = data.coords.latitude;
+		myCoords['myLng'] = data.coords.longitude;
+		initMapbox(myCoords['myLng'], myCoords['myLat']);
+	});
+});
+
+const initMapbox = (myLng = -118.243683, myLat = 34.052235) => {
 	const mapElement = document.getElementById('map');
 	if (mapElement) {
 		// only build a map if there's a div#map to inject into
@@ -29,29 +41,31 @@ const initMapbox = () => {
 
 		const map = new mapboxgl.Map({
 			container: 'map',
-			style: 'mapbox://styles/mapbox/light-v10'
+			style: 'mapbox://styles/mapbox/light-v10',
+			center: [ myLng, myLat ],
+			zoom: 12
 		});
 
 		// set the bounds of the map
-		var bounds = [ [ -123.069003, 45.395273 ], [ -122.303707, 45.612333 ] ];
-		map.setMaxBounds(bounds);
+		// var bounds = [ [ 34.021122, -118.396469 ], [ 33.980530, -117.377022 ] ];
+		// map.setMaxBounds(bounds);
 
 		// initialize the map canvas to interact with later
 		var canvas = map.getCanvasContainer();
 
 		// an arbitrary start will always be the same
 		// only the end or destination will change
-		var start = [ -122.662323, 45.523751 ];
+		var start = [ myLng, myLat ];
 
 		// create a function to make a directions request
 		window.getRoute = (end) => {
-			// make a directions request using cycling profile
+			// make a directions request using walking profile
 			// an arbitrary start will always be the same
 			// only the end or destination will change
-			var start = [ -122.662323, 45.523751 ];
+			var start = [ myLng, myLat ];
 			map.setCenter(start);
 			var url =
-				'https://api.mapbox.com/directions/v5/mapbox/cycling/' +
+				'https://api.mapbox.com/directions/v5/mapbox/walking/' +
 				start[0] +
 				',' +
 				start[1] +
@@ -158,17 +172,17 @@ const initMapbox = () => {
 			new mapboxgl.Marker(element).setLngLat([ marker.lng, marker.lat ]).setPopup(popup).addTo(map);
 		});
 
-
-    // addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
-    const geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl })
-    geocoder.on('result', (event) => {
-      window.getRoute(event.result.center)
-    })
-    map.addControl(geocoder);
-  }
-
+		// addMarkersToMap(map, markers);
+		fitMapToMarkers(map, markers);
+		const geocoder = new MapboxGeocoder({
+			accessToken: mapboxgl.accessToken,
+			mapboxgl: mapboxgl
+		});
+		geocoder.on('result', (event) => {
+			window.getRoute(event.result.center);
+		});
+		map.addControl(geocoder);
+	}
 };
 
 export { initMapbox };
