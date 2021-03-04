@@ -158,15 +158,17 @@ const initMapbox = () => {
 			new mapboxgl.Marker(element).setLngLat([ marker.lng, marker.lat ]).setPopup(popup).addTo(map);
 		});
 
-		// addMarkersToMap(map, markers);
-		fitMapToMarkers(map, markers);
-		map.addControl(
-			new MapboxGeocoder({
-				accessToken: mapboxgl.accessToken,
-				mapboxgl: mapboxgl
-			})
-		);
-	}
+
+    // addMarkersToMap(map, markers);
+    fitMapToMarkers(map, markers);
+    const geocoder = new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+                                      mapboxgl: mapboxgl })
+    geocoder.on('result', (event) => {
+      window.getRoute(event.result.center)
+    })
+    map.addControl(geocoder);
+  }
+
 };
 
 export { initMapbox };
