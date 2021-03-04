@@ -14,26 +14,26 @@ import { data } from 'jquery';
 //   });
 // };
 
-const fitMapToMarkers = (map, markers) => {
-	if (markers.length) {
-		const bounds = new mapboxgl.LngLatBounds();
-		markers.forEach((marker) => bounds.extend([ marker.lng, marker.lat ]));
-		map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-	}
-};
+// const fitMapToMarkers = (map, markers) => {
+// 	if (markers.length) {
+// 		const bounds = new mapboxgl.LngLatBounds();
+// 		markers.forEach((marker) => bounds.extend([ marker.lng, marker.lat ]));
+// 		map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+// 	}
+// };
 
-let myCoords = {};
+// let myCoords = {};
 
-const myLocationButton = document.getElementById('myLocation');
-const myLocation = myLocationButton.addEventListener('click', (event) => {
-	navigator.geolocation.getCurrentPosition((data) => {
-		myCoords['myLat'] = data.coords.latitude;
-		myCoords['myLng'] = data.coords.longitude;
-		initMapbox(myCoords['myLng'], myCoords['myLat']);
-	});
-});
+// const myLocationButton = document.getElementById('myLocation');
+// const myLocation = myLocationButton.addEventListener('click', (event) => {
+// 	navigator.geolocation.getCurrentPosition((data) => {
+// 		myCoords['myLat'] = data.coords.latitude;
+// 		myCoords['myLng'] = data.coords.longitude;
+// 		initMapbox(myCoords['myLng'], myCoords['myLat']);
+// 	});
+// });
 
-const initMapbox = (myLng = -118.243683, myLat = 34.052235) => {
+const initMapbox = () => {
 	const mapElement = document.getElementById('map');
 	if (mapElement) {
 		// only build a map if there's a div#map to inject into
@@ -156,7 +156,7 @@ const initMapbox = (myLng = -118.243683, myLat = 34.052235) => {
 			//Create sources and layers for the returned routes.
 			//There will be a maximum of 3 results from the Directions API.
 			//We use a loop to create the sources and layers.
-			for (i = 0; i <= 2; i++) {
+			for (let i = 0; i <= 2; i++) {
 				map.addSource('route' + i, {
 					type: 'geojson',
 					data: {
@@ -189,7 +189,7 @@ const initMapbox = (myLng = -118.243683, myLat = 34.052235) => {
 			let routes = e.route;
 
 			//Hide all routes by setting the opacity to zero.
-			for (i = 0; i < 3; i++) {
+			for (let i = 0; i < 3; i++) {
 				map.setLayoutProperty('route' + i, 'visibility', 'none');
 			}
 
@@ -211,15 +211,17 @@ const initMapbox = (myLng = -118.243683, myLat = 34.052235) => {
 				var emoji = '';
 				var clear = turf.booleanDisjoint(obstacle, routeLine);
 
+				const routeDetail = {};
+
 				if (clear == true) {
 					collision = 'is good!';
-					detail = 'does not go';
+					routeDetail[detail] = 'does not go';
 					emoji = '✔️';
 					report.className = 'item';
 					map.setPaintProperty('route' + e.id, 'line-color', '#74c476');
 				} else {
 					collision = 'is bad.';
-					detail = 'goes';
+					routeDetail[detail] = 'goes';
 					emoji = '⚠️';
 					report.className = 'item warning';
 					map.setPaintProperty('route' + e.id, 'line-color', '#de2d26');
@@ -243,7 +245,7 @@ const initMapbox = (myLng = -118.243683, myLat = 34.052235) => {
 
 				// Add details to the individual report.
 				var details = report.appendChild(document.createElement('div'));
-				details.innerHTML = 'This route ' + detail + ' through an avoidance area.';
+				details.innerHTML = 'This route ' + routeDetail[detail] + ' through an avoidance area.';
 				report.appendChild(document.createElement('hr'));
 			});
 		});
