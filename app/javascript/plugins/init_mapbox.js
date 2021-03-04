@@ -4,14 +4,14 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { data } from 'jquery';
 
 // const addMarkersToMap = (map, markers) => {
-//   markers.forEach((marker) => {
-//     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
+// 	markers.forEach((marker) => {
+// 		const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
 
-//     new mapboxgl.Marker()
-//       .setLngLat([ marker.lng, marker.lat ])
-//       .setPopup(popup) // add this
-//       .addTo(map);
-//   });
+// 		new mapboxgl.Marker()
+// 			.setLngLat([ marker.lng, marker.lat ])
+// 			.setPopup(popup) // add this
+// 			.addTo(map);
+// 	});
 // };
 
 // const fitMapToMarkers = (map, markers) => {
@@ -22,18 +22,19 @@ import { data } from 'jquery';
 // 	}
 // };
 
-// let myCoords = {};
+let myCoords = {};
 
-// const myLocationButton = document.getElementById('myLocation');
-// const myLocation = myLocationButton.addEventListener('click', (event) => {
-// 	navigator.geolocation.getCurrentPosition((data) => {
-// 		myCoords['myLat'] = data.coords.latitude;
-// 		myCoords['myLng'] = data.coords.longitude;
-// 		initMapbox(myCoords['myLng'], myCoords['myLat']);
-// 	});
-// });
+const myLocationButton = document.getElementById('myLocation');
+const myLocation = myLocationButton.addEventListener('click', (event) => {
+	navigator.geolocation.getCurrentPosition((data) => {
+		console.log(data);
+		myCoords['myLat'] = data.coords.latitude;
+		myCoords['myLng'] = data.coords.longitude;
+		initMapbox(myCoords['myLng'], myCoords['myLat']);
+	});
+});
 
-const initMapbox = () => {
+const initMapbox = (a = -118.243683, b = 34.052235) => {
 	const mapElement = document.getElementById('map');
 	if (mapElement) {
 		// only build a map if there's a div#map to inject into
@@ -42,8 +43,8 @@ const initMapbox = () => {
 		const map = new mapboxgl.Map({
 			container: 'map',
 			style: 'mapbox://styles/mapbox/light-v10',
-			center: [ -84.5, 38.05 ],
-			zoom: 12
+			center: [ a, b ],
+			zoom: 14
 		});
 
 		var nav = new mapboxgl.NavigationControl();
@@ -51,7 +52,7 @@ const initMapbox = () => {
 		var directions = new MapboxDirections({
 			accessToken: mapboxgl.accessToken,
 			unit: 'metric',
-			profile: 'mapbox/driving',
+			profile: 'mapbox/walking',
 			alternatives: 'false',
 			geometries: 'geojson'
 		});
@@ -66,7 +67,7 @@ const initMapbox = () => {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [ -84.47426, 38.06673 ]
+						coordinates: [ -118.24214, 34.04811 ]
 					},
 					properties: {
 						clearance: "13' 2"
@@ -76,7 +77,7 @@ const initMapbox = () => {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [ -84.47208, 38.06694 ]
+						coordinates: [ -118.26102, 34.07413 ]
 					},
 					properties: {
 						clearance: "13' 7"
@@ -86,7 +87,7 @@ const initMapbox = () => {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [ -84.60485, 38.12184 ]
+						coordinates: [ -118.25965, 34.04548 ]
 					},
 					properties: {
 						clearance: "13' 7"
@@ -96,7 +97,7 @@ const initMapbox = () => {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [ -84.61905, 37.87504 ]
+						coordinates: [ -118.27922, 34.03218 ]
 					},
 					properties: {
 						clearance: "12' 0"
@@ -106,7 +107,7 @@ const initMapbox = () => {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [ -84.55946, 38.30213 ]
+						coordinates: [ -118.26085, 34.0351 ]
 					},
 					properties: {
 						clearance: "13' 6"
@@ -116,7 +117,7 @@ const initMapbox = () => {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [ -84.27235, 38.04954 ]
+						coordinates: [ -118.26566, 34.0548 ]
 					},
 					properties: {
 						clearance: "13' 6"
@@ -126,7 +127,7 @@ const initMapbox = () => {
 					type: 'Feature',
 					geometry: {
 						type: 'Point',
-						coordinates: [ -84.27264, 37.82917 ]
+						coordinates: [ -118.26079,34.04643 ]
 					},
 					properties: {
 						clearance: "11' 6"
@@ -135,7 +136,7 @@ const initMapbox = () => {
 			]
 		};
 
-		var obstacle = turf.buffer(clearances, 0.25, { units: 'kilometers' });
+		var obstacle = turf.buffer(clearances, 0.03, { units: 'kilometers' });
 
 		map.on('load', function(e) {
 			map.addLayer({
@@ -215,13 +216,13 @@ const initMapbox = () => {
 
 				if (clear == true) {
 					collision = 'is good!';
-					routeDetail["detail"] = 'does not go';
+					routeDetail['detail'] = 'does not go';
 					emoji = '✔️';
 					report.className = 'item';
 					map.setPaintProperty('route' + e.id, 'line-color', '#74c476');
 				} else {
 					collision = 'is bad.';
-					routeDetail["detail"] = 'goes';
+					routeDetail['detail'] = 'goes';
 					emoji = '⚠️';
 					report.className = 'item warning';
 					map.setPaintProperty('route' + e.id, 'line-color', '#de2d26');
@@ -245,7 +246,7 @@ const initMapbox = () => {
 
 				// Add details to the individual report.
 				var details = report.appendChild(document.createElement('div'));
-				details.innerHTML = 'This route ' + routeDetail["detail"] + ' through an avoidance area.';
+				details.innerHTML = 'This route ' + routeDetail['detail'] + ' through an avoidance area.';
 				report.appendChild(document.createElement('hr'));
 			});
 		});
