@@ -1,11 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div id="map"
-     style="width: 100vw; height: 100vh;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
+<div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="sidebar">
+     <button id="myLocation" class="btn btn-primary">share location</button>
+     <div class="heading">
+          <h1>Routes</h1>
+     </div>
+     <div id="reports" class="reports"></div>
 </div>
+
 
 <%= render "sidebar" %>
 <%= render "alert_modal" %>
@@ -16,3 +17,4 @@
 <button id="myLocation" class="btn btn-primary">share location</button>
 
 <%= link_to 'Test', notify_alerts_path, method: :post %>
+
