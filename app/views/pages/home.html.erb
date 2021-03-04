@@ -1,20 +1,9 @@
-<div style="position:relative;">
-    <div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">></div>
-     <div class="sidebar">
-          <div class="heading">
-               <h1>Routes</h1>
-          </div>
+<div id="map" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="sidebar">
+     <div class="heading">
+          <h1>Routes</h1>
+     </div>
      <div id="reports" class="reports"></div>
-</div>
-
-
-   <div style="position:absolute; top: 0; left: 0;">
-      <%= render "sidebar" %>
-      <%= render "alert_modal" %>
-      <%= render "trip_review" %>
-      <%= render "create_alert" %>
-      <%= render "describe_incident" %>
-    </div>
 </div>
 
 <button id="myLocation" class="btn btn-primary">share location</button>
