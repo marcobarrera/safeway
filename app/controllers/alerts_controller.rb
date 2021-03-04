@@ -14,6 +14,23 @@ class AlertsController < ApplicationController
   end
 
   def notify
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+    emergency_phones = []
+    emergency_contacts = current_user.contacts.where(emergency_contact: true)
+    emergency_contacts.each do |contact|
+      emergency_phones << contact.phone_number
+    end
+  raise
+    from = '+14088316357' # Your Twilio number
+    to = emergency_phones # Your mobile phone number
+
+    client.messages.create(
+    from: from,
+    to: to,
+    body: "Hey friend!"
+    )
   end
 
   def share_location
@@ -23,5 +40,9 @@ class AlertsController < ApplicationController
 
   def alert_params
     params.require(:alert).permit(:category, :longitude, :latitude, :description, :expiration_time, :status, :address)
+  end
+
+  def emergency_contacts
+    current_user.contacts.where(emergency_contact: true)
   end
 end

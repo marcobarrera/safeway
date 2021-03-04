@@ -4,3 +4,12 @@
   right: 16px;
   z-index: 1000;
 }
+
+.alert-button {
+  background-image: url("button.png") !important;
+  background-color: blue;
+  background-size: cover;
+  width: 60px;
+  height:60px;
+  border-radius: 50%;
+}
