@@ -215,13 +215,13 @@ const initMapbox = () => {
 
 				if (clear == true) {
 					collision = 'is good!';
-					routeDetail[detail] = 'does not go';
+					routeDetail["detail"] = 'does not go';
 					emoji = '✔️';
 					report.className = 'item';
 					map.setPaintProperty('route' + e.id, 'line-color', '#74c476');
 				} else {
 					collision = 'is bad.';
-					routeDetail[detail] = 'goes';
+					routeDetail["detail"] = 'goes';
 					emoji = '⚠️';
 					report.className = 'item warning';
 					map.setPaintProperty('route' + e.id, 'line-color', '#de2d26');
@@ -245,7 +245,7 @@ const initMapbox = () => {
 
 				// Add details to the individual report.
 				var details = report.appendChild(document.createElement('div'));
-				details.innerHTML = 'This route ' + routeDetail[detail] + ' through an avoidance area.';
+				details.innerHTML = 'This route ' + routeDetail["detail"] + ' through an avoidance area.';
 				report.appendChild(document.createElement('hr'));
 			});
 		});
