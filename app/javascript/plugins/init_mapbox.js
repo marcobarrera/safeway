@@ -52,8 +52,8 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 		var directions = new MapboxDirections({
 			accessToken: mapboxgl.accessToken,
 			unit: 'metric',
-			profile: 'mapbox/driving',
-			alternatives: 'false',
+			profile: 'mapbox/cycling',
+			alternatives: 'true',
 			geometries: 'geojson'
 		});
 
