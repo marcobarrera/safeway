@@ -1,13 +1,17 @@
 #btnRobbery{
   border-radius: 7px;
-  font-size: 15px;
-  font-family: 'roboto',sans-serif;
+  background-image: url("robberybtn");
+  height: 90px;
+  width: 90px;
+  background-size: 100%;
 }
+
 #btnFireArm{
   border-radius: 7px;
   font-size: 15px;
   text-align: center;
-  font-family: 'roboto',sans-serif;
+  background-image: url("firearmbtn");
+  background-size: 100%;
   // margin-top: 0px;
 }
 #btnFight{
