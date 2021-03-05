@@ -3,25 +3,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { data } from 'jquery';
 
-// const addMarkersToMap = (map, markers) => {
-// 	markers.forEach((marker) => {
-// 		const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
-
-// 		new mapboxgl.Marker()
-// 			.setLngLat([ marker.lng, marker.lat ])
-// 			.setPopup(popup) // add this
-// 			.addTo(map);
-// 	});
-// };
-
-// const fitMapToMarkers = (map, markers) => {
-// 	if (markers.length) {
-// 		const bounds = new mapboxgl.LngLatBounds();
-// 		markers.forEach((marker) => bounds.extend([ marker.lng, marker.lat ]));
-// 		map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-// 	}
-// };
-
 let myCoords = {};
 
 const myLocationButton = document.getElementById('myLocation');
@@ -71,9 +52,6 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 				geometry: {
 					type: 'Point',
 					coordinates: [ alert.longitude, alert.latitude ]
-				},
-				properties: {
-					clearance: "11' 6"
 				}
 			});
 		}
@@ -81,20 +59,27 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 		var obstacle = turf.buffer(clearances, 0.03, { units: 'kilometers' });
 
 		map.on('load', function(e) {
-			map.addLayer({
-				id: 'clearances',
-				type: 'fill',
-				source: {
-					type: 'geojson',
-					data: obstacle
-				},
-				layout: {},
-				paint: {
-					'fill-color': '#f03b20',
-					'fill-opacity': 0.5,
-					'fill-outline-color': '#f03b20'
+			map.loadImage(
+				'https://3oecq13pb7a518hqscs13jv9-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/alert-icon-red-11.png',
+				function(error, image) {
+					if (error) throw error;
+					map.addImage('cat', image);
+					map.addSource('point', {
+						type: 'geojson',
+						data: clearances
+					});
+
+					map.addLayer({
+						id: 'clearances',
+						type: 'symbol',
+						source: 'point',
+						layout: {
+							'icon-image': 'cat',
+							'icon-size': 0.1
+						}
+					});
 				}
-			});
+			);
 
 			//Create sources and layers for the returned routes.
 			//There will be a maximum of 3 results from the Directions API.
