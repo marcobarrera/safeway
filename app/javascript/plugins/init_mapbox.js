@@ -45,15 +45,17 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 			type: 'FeatureCollection',
 			features: []
 		};
-
+		console.log(gon.alerts);
 		for (let alert of gon.alerts) {
-			clearances.features.push({
-				type: 'Feature',
-				geometry: {
-					type: 'Point',
-					coordinates: [ alert.longitude, alert.latitude ]
-				}
-			});
+			if (alert.longitude && alert.latitude) {
+				clearances.features.push({
+					type: 'Feature',
+					geometry: {
+						type: 'Point',
+						coordinates: [ alert.longitude, alert.latitude ]
+					}
+				});
+			}
 		}
 
 		var obstacle = turf.buffer(clearances, 0.03, { units: 'kilometers' });
