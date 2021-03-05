@@ -20,6 +20,9 @@ body {
     width: 100%;
 }
 
+label {
+    margin-bottom: 0px;
+}
 // .sidebar {
 //     position: absolute;
 //     width: 0%;
@@ -109,4 +112,8 @@ a:hover {
  ::-webkit-scrollbar-thumb {
     background: #00853e;
     border-radius: 0;
+}
+
+.directions-icon-depart {
+    background-image: img('alert.png');
 }
