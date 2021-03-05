@@ -62,79 +62,21 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 
 		var clearances = {
 			type: 'FeatureCollection',
-			features: [
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [ -118.24214, 34.04811 ]
-					},
-					properties: {
-						clearance: "13' 2"
-					}
-				},
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [ -118.26102, 34.07413 ]
-					},
-					properties: {
-						clearance: "13' 7"
-					}
-				},
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [ -118.25965, 34.04548 ]
-					},
-					properties: {
-						clearance: "13' 7"
-					}
-				},
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [ -118.27922, 34.03218 ]
-					},
-					properties: {
-						clearance: "12' 0"
-					}
-				},
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [ -118.26085, 34.0351 ]
-					},
-					properties: {
-						clearance: "13' 6"
-					}
-				},
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [ -118.26566, 34.0548 ]
-					},
-					properties: {
-						clearance: "13' 6"
-					}
-				},
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [ -118.26079,34.04643 ]
-					},
-					properties: {
-						clearance: "11' 6"
-					}
-				}
-			]
+			features: []
 		};
+
+		for (let alert of gon.alerts) {
+			clearances.features.push({
+				type: 'Feature',
+				geometry: {
+					type: 'Point',
+					coordinates: [ alert.longitude, alert.latitude ]
+				},
+				properties: {
+					clearance: "11' 6"
+				}
+			});
+		}
 
 		var obstacle = turf.buffer(clearances, 0.03, { units: 'kilometers' });
 
