@@ -7,11 +7,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="my-header">
-          <button type="button" class="btn-close btn-dark model-x" data-dismiss="modal" aria-label="Close">X</button>
+          <button type="button" class="btn-close" data-dismiss="modal"></button>
         </div>
         <div class="modal-body">
          <!-- Content of the modal -->
-         <h1>Welcome <%= current_user.first_name %></h1>
+
+         <h1>Welcome <%= current_user.first_name %>!</h1>
           <ul>
             <li><%= link_to "Contacts", contacts_path %></li>
             <li><%= link_to "Saved Places", addresses_path %></li>
