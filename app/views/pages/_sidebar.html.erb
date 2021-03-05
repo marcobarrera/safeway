@@ -14,10 +14,15 @@
 
          <h1>Welcome <%= current_user.first_name %>!</h1>
           <ul>
+            <hr>
             <li><%= link_to "Contacts", contacts_path %></li>
+            <hr>
             <li><%= link_to "Saved Places", addresses_path %></li>
+            <hr>
             <li><%= link_to "Profile", edit_user_registration_path %></li>
+            <hr>
             <li><%= link_to "Alerts", alerts_path %></li>
+            <hr>
             <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </ul>
         </div>
@@ -37,10 +42,15 @@
          <!-- Content of the modal -->
          <h1>Welcome</h1>
           <ul>
+            <hr>
             <li><%= link_to "Contacts", contacts_path %></li>
+            <hr>
             <li><%= link_to "Saved Places", addresses_path %></li>
+            <hr>
             <li><%= link_to "Profile", edit_user_registration_path %></li>
+            <hr>
             <li><%= link_to "Alerts", alerts_path %></li>
+            <hr>
             <%= render "login" %>
             <%= render "signup" %>
           </ul>

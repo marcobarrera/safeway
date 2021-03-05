@@ -119,3 +119,44 @@ a:hover {
 .mapbox-directions-route-summary + .mapbox-directions-instructions{
     height: 80px;
 }
+
+.mapbox-directions-component-keyline{
+    width: 300px;
+}
+
+.directions-icon-arrive{
+    background: url('https://api.iconify.design/carbon:dot-mark.svg') no-repeat center center / contain !important;
+}
+
+.directions-icon-depart{
+    background: url('https://api.iconify.design/fluent:location-20-filled.svg') no-repeat center center / contain !important;
+}
+.directions-icon {
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.mapbox-form-label{
+    background-color: white !important;
+}
+
+.directions-icon-reverse{
+    background: url('https://api.iconify.design/clarity:switch-line.svg?flip=vertical') no-repeat center center / contain !important;
+    transform: rotate(90deg);
+}
+
+.directions-reverse{
+    height: 14px !important;
+    left: 10px !important;
+    top: 33px !important;
+}
+
+.directions-control.directions-control-inputs {
+    background-color: white;
+    //border-radius: 20px;
+}
+
+.mapbox-directions-component{
+    margin-left: 0px;
+}
