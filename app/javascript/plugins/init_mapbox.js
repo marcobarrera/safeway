@@ -81,19 +81,33 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 		var obstacle = turf.buffer(clearances, 0.03, { units: 'kilometers' });
 
 		map.on('load', function(e) {
-			map.addLayer({
-				id: 'clearances',
-				type: 'fill',
-				source: {
+			map.loadImage('https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png', function(error, image) {
+				if (error) throw error;
+				map.addImage('cat', image);
+				map.addSource('point', {
 					type: 'geojson',
-					data: obstacle
-				},
-				layout: {},
-				paint: {
-					'fill-color': '#f03b20',
-					'fill-opacity': 0.5,
-					'fill-outline-color': '#f03b20'
-				}
+					data: {
+						type: 'FeatureCollection',
+						features: [
+							{
+								type: 'Feature',
+								geometry: {
+									type: 'Point',
+									coordinates: [ -118.243683, 34.052235 ]
+								}
+							}
+						]
+					}
+				});
+				map.addLayer({
+					id: 'clearances',
+					type: 'symbol',
+					source: 'point',
+					layout: {
+						'icon-image': 'cat',
+						'icon-size': 0.25
+					}
+				});
 			});
 
 			//Create sources and layers for the returned routes.
@@ -196,3 +210,32 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 };
 
 export { initMapbox };
+
+// map.loadImage('https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png', function(error, image) {
+// 	if (error) throw error;
+// 	map.addImage('cat', image);
+// 	// map.addSource('point', {
+// 	// 	type: 'geojson',
+// 	// 	data: {
+// 	// 		type: 'FeatureCollection',
+// 	// 		features: [
+// 	// 			{
+// 	// 				type: 'Feature',
+// 	// 				geometry: {
+// 	// 					type: 'Point',
+// 	// 					coordinates: [ 0, 0 ]
+// 	// 				}
+// 	// 			}
+// 	// 		]
+// 	// 	}
+// 	// });
+// 	map.addLayer({
+// 		id: 'clearances',
+// 		type: 'symbol',
+// 		source: 'point',
+// 		layout: {
+// 			'icon-image': 'cat',
+// 			'icon-size': 0.25
+// 		}
+// 	});
+// });
