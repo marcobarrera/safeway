@@ -3,7 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { data } from 'jquery';
 
-let myCoords = {};
+// let myCoords = {};
 
 // const myLocationButton = document.getElementById('myLocation');
 // const myLocation = myLocationButton.addEventListener('click', (event) => {
@@ -55,7 +55,7 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 			type: 'FeatureCollection',
 			features: []
 		};
-		console.log(gon.alerts);
+
 		for (let alert of gon.alerts) {
 			if (alert.longitude && alert.latitude) {
 				clearances.features.push({

@@ -6,25 +6,25 @@ class PagesController < ApplicationController
     gon.alerts = Alert.all
     @markers = @alerts.geocoded.map do |alert|
       if alert.category == "robbery"
-        img = 'robbery.png'
+        img = "robbery.png"
       elsif alert.category == "fire arm"
-        img = 'gun.png'
+        img = "gun.png"
       elsif alert.category == "fight"
-        img = 'fight.png'
+        img = "fight.png"
       elsif alert.category == "suspicious"
-        img = 'suspish.png'
+        img = "suspish.png"
       elsif alert.category == "abuse"
-        img = 'abuse.png'
+        img = "abuse.png"
       elsif alert.category == "kidnap"
-        img = 'kidnap.png'
+        img = "kidnap.png"
       else
-        img = 'alert.png'
+        img = "alert.png"
       end
       {
         lat: alert.latitude,
         lng: alert.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { alert: alert }),
-        image_url: helpers.asset_url(img)
+        image_url: helpers.asset_url(img),
       }
     end
   end
