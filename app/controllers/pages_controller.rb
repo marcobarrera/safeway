@@ -4,18 +4,20 @@ class PagesController < ApplicationController
   def home
     @alerts = Alert.all
     gon.alerts = Alert.all
+
     @markers = @alerts.geocoded.map do |alert|
-      if alert.category == "robbery"
+      case alert.category
+      when "robbery"
         img = "robbery.png"
-      elsif alert.category == "fire arm"
+      when "fire arm"
         img = "gun.png"
-      elsif alert.category == "fight"
+      when "fight"
         img = "fight.png"
-      elsif alert.category == "suspicious"
+      when "suspicious"
         img = "suspish.png"
-      elsif alert.category == "abuse"
+      when "abuse"
         img = "abuse.png"
-      elsif alert.category == "kidnap"
+      when "kidnap"
         img = "kidnap.png"
       else
         img = "alert.png"
