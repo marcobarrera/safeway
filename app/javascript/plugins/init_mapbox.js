@@ -29,6 +29,7 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 		});
 
 		// Add geolocate control to the map.
+
 		map.addControl(
 			new mapboxgl.GeolocateControl({
 				positionOptions: {
@@ -37,6 +38,8 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 				trackUserLocation: true
 			})
 		);
+
+		// Direction search bar
 
 		var nav = new mapboxgl.NavigationControl();
 
@@ -50,6 +53,8 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 
 		map.scrollZoom.enable();
 		map.addControl(directions, 'top-right');
+
+		// Obstacle data
 
 		var clearances = {
 			type: 'FeatureCollection',
@@ -69,6 +74,8 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 		}
 
 		var obstacle = turf.buffer(clearances, 0.03, { units: 'kilometers' });
+
+		// Display obstacles
 
 		map.on('load', function(e) {
 			map.loadImage(
