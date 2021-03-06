@@ -5,15 +5,15 @@ import { data } from 'jquery';
 
 let myCoords = {};
 
-const myLocationButton = document.getElementById('myLocation');
-const myLocation = myLocationButton.addEventListener('click', (event) => {
-	navigator.geolocation.getCurrentPosition((data) => {
-		console.log(data);
-		myCoords['myLat'] = data.coords.latitude;
-		myCoords['myLng'] = data.coords.longitude;
-		initMapbox(myCoords['myLng'], myCoords['myLat']);
-	});
-});
+// const myLocationButton = document.getElementById('myLocation');
+// const myLocation = myLocationButton.addEventListener('click', (event) => {
+// 	navigator.geolocation.getCurrentPosition((data) => {
+// 		console.log(data);
+// 		myCoords['myLat'] = data.coords.latitude;
+// 		myCoords['myLng'] = data.coords.longitude;
+// 		initMapbox(myCoords['myLng'], myCoords['myLat']);
+// 	});
+// });
 
 const initMapbox = (a = -118.243683, b = 34.052235) => {
 	const mapElement = document.getElementById('map');
@@ -27,6 +27,16 @@ const initMapbox = (a = -118.243683, b = 34.052235) => {
 			center: [ a, b ],
 			zoom: 14
 		});
+
+		// Add geolocate control to the map.
+		map.addControl(
+			new mapboxgl.GeolocateControl({
+				positionOptions: {
+					enableHighAccuracy: true
+				},
+				trackUserLocation: true
+			})
+		);
 
 		var nav = new mapboxgl.NavigationControl();
 
