@@ -9,22 +9,23 @@
         <div class="my-header">
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         </div>
+          <div class="smiley-container text-center">
+            <img class="smiley" src="https://res.cloudinary.com/titavon/image/upload/v1615223500/octicon_smiley-24_caok3k.png">
+            <h1 class="welcome">Welcome <%= current_user.first_name %>!</h1>
+          </div> 
         <div class="modal-body">
          <!-- Content of the modal -->
-
-         <h1>Welcome <%= current_user.first_name %>!</h1>
-          <ul>
-            <hr>
-            <li><%= link_to "Contacts", contacts_path %></li>
-            <hr>
-            <li><%= link_to "Saved Places", addresses_path %></li>
-            <hr>
-            <li><%= link_to "Profile", edit_user_registration_path %></li>
-            <hr>
-            <li><%= link_to "Alerts", alerts_path %></li>
-            <hr>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </ul>
+           <ul>
+             <li><img class="sidebar-icons" id="contact" src="https://res.cloudinary.com/titavon/image/upload/v1615236183/carbon_phone-voice_vousid.png"><%= link_to "Contacts", contacts_path %></li>
+             <hr>
+             <li><img class="sidebar-icons" id="saved" src="https://res.cloudinary.com/titavon/image/upload/v1615236183/codicon_home_rdkkd7.png"><%= link_to "Saved Places", addresses_path %></li>
+             <hr>
+             <li><img class="sidebar-icons" id="profile" src="https://res.cloudinary.com/titavon/image/upload/v1615236183/profile_iusy5f.png"><%= link_to "Profile", edit_user_registration_path %></li>
+             <hr>
+             <li><img class="sidebar-icons" id="alert" src="https://res.cloudinary.com/titavon/image/upload/v1615236183/mdi_shield-alert-outline_sssntg.png"><%= link_to "Alerts", alerts_path %></li>
+             <hr>
+             <li><img class="sidebar-icons" id="logout" src="https://res.cloudinary.com/titavon/image/upload/v1615236183/eva_log-out-fill_mngtxt.png"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item logout" %></li>
+           </ul>
         </div>
       </div>
     </div>
@@ -38,23 +39,25 @@
         <div class="my-header">
           <button type="button" class="btn-close btn-dark model-x" data-dismiss="modal" aria-label="Close">X</button>
         </div>
-        <div class="modal-body">
-         <!-- Content of the modal -->
-         <h1>Welcome</h1>
-          <ul>
-            <hr>
-            <li><%= link_to "Contacts", contacts_path %></li>
-            <hr>
-            <li><%= link_to "Saved Places", addresses_path %></li>
-            <hr>
-            <li><%= link_to "Profile", edit_user_registration_path %></li>
-            <hr>
-            <li><%= link_to "Alerts", alerts_path %></li>
-            <hr>
-            <%= render "login" %>
-            <%= render "signup" %>
-          </ul>
-        </div>
+          <div class="smiley-container text-center">
+            <img class="smiley" src="https://res.cloudinary.com/titavon/image/upload/v1615223500/octicon_smiley-24_caok3k.png">
+            <h1 class="welcome">Welcome</h1> 
+          </div> 
+          <div class="modal-body">
+           <!-- Content of the modal -->
+            <ul>
+              <li><%= link_to "Contacts", contacts_path %></li>
+              <hr>
+              <li><%= link_to "Saved Places", addresses_path %></li>
+              <hr>
+              <li><%= link_to "Profile", edit_user_registration_path %></li>
+              <hr>
+              <li><%= link_to "Alerts", alerts_path %></li>
+              <hr>
+              <%= render "login" %>
+              <%= render "signup" %>
+            </ul>
+          </div>
       </div>
     </div>
   </div>
