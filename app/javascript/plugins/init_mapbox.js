@@ -208,7 +208,6 @@ const initMapbox = () => {
 		addMarkersToMap(map, markers);
 		// fitMapToMarkers(map, markers);
 
-
     geolocate(map);
 
     directionsSearchBar(map);
