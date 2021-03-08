@@ -8,9 +8,14 @@
   margin-top: 29px;
 }
 
+#sidebarModal {
+  margin-top: 50px;
+}
+
 .modal-content{
   border-radius: 20px;
 }
+
 .smiley {
   width: 100px;
   height: 100px;
@@ -84,4 +89,17 @@ ul {
   position: relative;
   bottom: 37px;
   left: 10px;
+}
+
+.buttons-center {
+  margin-left: 83px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.btn-secondary {
+  color: black;
+  background-color: #ffff;
+  border-radius: 10px;
+  border-color: #16C79A;
 }
