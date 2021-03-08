@@ -13,6 +13,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="signup-container text-center">
+            <img class="signupicon" src="https://res.cloudinary.com/titavon/image/upload/v1615223484/gg_profile_lg81vl.png">
+      </div> 
       <div class="modal-body">
         <div class="signupicon" style="position: absolute; height: 50px; width: 50px;" ></div>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -47,7 +50,7 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Create", class: "btn btn-primary" %>
+            <%= f.button :submit, "Create", class: "btn btn-primary create" %>
           </div>
         <% end %>
 
