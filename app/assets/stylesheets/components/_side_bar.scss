@@ -7,3 +7,81 @@
   margin-left: 10px;
   margin-top: 29px;
 }
+
+.modal-content{
+  border-radius: 20px;
+}
+.smiley {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+.smiley-container{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.welcome {
+  padding-top: 10px;
+  text-align: center;
+  font-family: "roboto", sans-serif;
+  font-size: 20px;
+}
+
+a {
+  font-family: "roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  color: #505050 !important;
+}
+
+ul {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.sidebar-icons {
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+#contact {
+  padding-right: 9px;
+  width: 36px;
+  height: 28px;
+}
+
+#saved {
+  padding-right: 9px;
+  width: 37px;
+  height: 28px;
+}
+
+#profile {
+  margin-right: 5px;
+  height: 23px;
+  width: 33px;
+  margin-bottom: 13px;
+}
+
+#alert {
+  margin-right: 5px;
+  height: 23px;
+  width: 33px;
+  margin-bottom: 12px;
+}
+
+#logout {
+  position: relative ;
+  margin-right: 5px;
+  height: 23px;
+  width: 33px;
+  margin-bottom: 12px;
+}
+
+.logout {
+  position: relative;
+  bottom: 37px;
+  left: 10px;
+}
