@@ -27,13 +27,23 @@ let myCoords = {};
 const myLocationButton = document.getElementById('myLocation');
 const myLocation = myLocationButton.addEventListener('click', (event) => {
 	navigator.geolocation.getCurrentPosition((data) => {
-		console.log(data);
 		myCoords['myLat'] = data.coords.latitude;
 		myCoords['myLng'] = data.coords.longitude;
 		initMapbox(myCoords['myLng'], myCoords['myLat']);
 	});
 });
 
+
+// 1. Add id to the alert button
+// // 2. Get the element by the id 
+
+
+// we need to create an empty hash for emergency coordinates
+// 4. when we trigger the event we add the coordinates to the hash
+// 5. we need to convert it to a json
+// 6. we need to send to back end with fetch
+// 7. find a route to do so (build a route)
+// 8. parse it from Json to normal hash(array, string) and pass it to the notify method
 const initMapbox = (a = -118.243683, b = 34.052235) => {
 	const mapElement = document.getElementById('map');
 	if (mapElement) {
