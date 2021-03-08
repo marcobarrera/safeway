@@ -30,14 +30,13 @@ class AlertsController < ApplicationController
     client = Twilio::REST::Client.new(account_sid, auth_token)
     emergency_contacts = current_user.contacts.where(emergency_contact: true)
     from = '+14088316357' # Your Twilio number
-    #emergency_contacts.each do |contact|
-       #byebug
+    emergency_contacts.each do |contact|
           client.messages.create(
             from: from,
-            to: '+12016879114',
+            to: contact.phone_number,
             body: "Hey friend! I'm in trouble. My location is http://www.google.com/maps/place/#{params['myLat']},#{params['myLng']}"
           )
-    #end
+    end
     Alert.create!(longitude: params[:myLng], latitude: params[:myLat], user_id: current_user.id)
   end
 
