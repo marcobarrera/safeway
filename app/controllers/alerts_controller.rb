@@ -35,10 +35,10 @@ class AlertsController < ApplicationController
           client.messages.create(
             from: from,
             to: '+12016879114',
-            body: "Hey friend! I'm in trouble. My location is #{params['myLat']} #{params['myLng']}"
+            body: "Hey friend! I'm in trouble. My location is http://www.google.com/maps/place/#{params['myLat']},#{params['myLng']}"
           )
-  
     #end
+    Alert.create!(longitude: params[:myLng], latitude: params[:myLat], user_id: current_user.id)
   end
 
   private
