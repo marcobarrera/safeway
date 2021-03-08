@@ -13,6 +13,7 @@
    font-family: "roboto", sans-serif;
    font-weight:bold;
    font-size: 16px;
+   margin-left: 66px;
 
 }
 
@@ -29,6 +30,7 @@
 }
 #contact-search{
 
+
 }
 
 .search-form-control {
@@ -43,9 +45,28 @@
 }
 
 .search-form-control .form-control {
-  height: 3.5rem;
+  height: 48px;
+  width: 276px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
+  margin-left: 17px;
+  border-radius: 50px;
+}
+
+.fas{
+  margin-right: 1380px;
+}
+
+.form-btn{
+  position: absolute;
+  right: -10px;
+  top: 7px;
+  color: #C4C4C4;
+}
+
+.form-control{
+  font-family: "roboto", sans-serif;
+  color: #C4C4C4;
 }
 
 
