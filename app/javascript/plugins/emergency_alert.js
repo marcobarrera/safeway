@@ -11,6 +11,7 @@ const emergency = () => {
 	if (alertButton){
 		console.log("alert click");
 		alertButton.addEventListener('click', (event) => {
+			console.log("hello");
 			navigator.geolocation.getCurrentPosition((data) => {
 				let emergencyCoordinates = {myLat: data.coords.latitude, myLng: data.coords.longitude};
 				console.log(emergencyCoordinates);
