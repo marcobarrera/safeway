@@ -1,15 +1,20 @@
 #btnPolice {
-  background-color: #15c79a;
-  margin-right: 102px;
-  border-radius: 7px;
-  font-family: 'roboto', sans-serif;
+  margin-right: 105px;
+}
 
+.alertHeader {
+  padding-top: 0px;
+}
+
+#alertModalLabel {
+  margin-left: 137px;
 }
 
 #alertModal {
-  border-radius: 7px;
+  border-radius: 20px;
   text-align: center;
   font-family: 'roboto', sans-serif;
+  font-size: 20px;
 }
 
 .fas {
