@@ -1,1 +1,18 @@
 // Specific CSS for your home-page
+.mapboxgl-ctrl-group{
+   position: absolute;
+   top: 640px;
+   left: -21px;
+}
+
+a.mapboxgl-ctrl-logo{
+  display: none !important;
+}
+
+.mapboxgl-ctrl-attrib-button {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-attrib.mapboxgl-compact{
+  display: none !important;
+}

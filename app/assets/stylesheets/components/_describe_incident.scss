@@ -2,16 +2,23 @@
   background-color:#15c79a;
   font-family: 'roboto', sans-serif;
   font-size: 21px;
-  border-radius: 9px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-.post {
-  background-color:#15c79a;
-  border-radius: 7px;
-  border-color: transparent;
-
+.btn-primary {
+  width: 115px;
+  height: 40px;
+}
+.post{
+  margin-top: 20px;
 }
 
 .describeRadius {
   border-radius: 9px;
+}
+
+.smiley-describe {
+  width: 40px;
+  height: 40px;
 }

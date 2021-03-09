@@ -1,17 +1,9 @@
-#btnGood {
-  background-color: #15c79a;
-  margin-left: 40px;
-  border-radius: 7px;
-  font-family: 'roboto', sans-serif;
-
-}
-
-#btnUnsafe {
-  background-color: #15c79a;
-  margin-left: 35px;
-  border-radius: 7px;
-  font-family: 'roboto', sans-serif;
-
+.modal-title {
+  font-family: "roboto", sans-serif;
+  font-size: 24px !important;
+  font-weight: 100;
+  color: #505050 !important;
+  text-align: center;
 }
 
 #reviewModal {
@@ -19,14 +11,39 @@
   font-family: 'roboto', sans-serif;
 }
 
-.tripReviewGreen {
-  background-color: #15c79a;
-  font-family: 'roboto', sans-serif;
-  border-radius: 9px;
-
-
+.trip-icon{
+  margin-left: 136px;
+  height: 50px;
+  width: 50px;
 }
 
 .reviewRadius{
   border-radius: 9px;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-top: 20px !important;
+  padding-bottom: 0px;
+}
+
+.buttons-review {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#btnGood {
+  width: 135px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+#btnUnsafe {
+  width: 135px;
+  height: 45px;
+}
+
+.modal-content {
+  margin-top: 50px;
 }
