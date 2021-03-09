@@ -10,10 +10,9 @@
   <%= form_tag contacts_path, method: :get, class: "simple_form search", id: "contact-search" do %>
         <div class="search-form-control form-group">
         <%= text_field_tag :query,
-              params[:query],
-              class: "form-control string required pl-5",
-              placeholder: "Search"
-            %>
+                           params[:query],
+                           class: "form-control string required pl-5",
+                           placeholder: "Search" %>
         <button name="button" type="submit" class="btn btn-flat">
           <i class="form-btn fas fa-search"></i>
         </button>

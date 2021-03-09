@@ -185,7 +185,7 @@ const routeCollisions = (map, directions, obstacle) => {
 				routeDetail['detail'] = 'goes';
 				emoji = '⚠️';
 				report.className = 'item warning';
-				map.setPaintProperty('route' + e.id, 'line-color', '#de2d26');
+				map.setPaintProperty('route' + e.id, 'line-color', '#DD0018');
 			}
 
 			//Add a new report section to the sidebar.

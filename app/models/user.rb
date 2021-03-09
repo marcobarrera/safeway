@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :alerts, dependent: :destroy
   has_many :contacts, dependent: :destroy
+
+  validates :first_name, :last_name, :phone_number, presence: true
 end
