@@ -1,7 +1,10 @@
-<%= link_to "Back", root_path %>
-
-<h1>Addresses</h1>
+ <%= link_to root_path do %>
+  <img class="goback" src="https://res.cloudinary.com/titavon/image/upload/v1615237711/Vector_pdzyn9.png">
+ <% end %>
+<br>
+<hr>
+<h1 class="address-title">Saved places</h1>
 
 <% @addresses.each do |address| %>
-<%= address.label %> 
+<%= address.label %>
 <% end %>
