@@ -4,8 +4,9 @@
   width: 165px;
   height: 40px;
   font-size: 30px;
-  margin-top: 10px;
+  margin-top: 1px;
   margin-left: 30px;
+  margin-bottom: 29px;
 
 }
 
@@ -13,13 +14,14 @@
    font-family: "roboto", sans-serif;
    font-weight:bold;
    font-size: 16px;
-   margin-left: 66px;
+   margin-left: 24px;
 
 }
 
 .contact-emergency {
   width:30px;
   height: 30px;
+  margin-left: 243px;
 }
 
 .goback {
@@ -27,10 +29,6 @@
   height: 20.03px;
   margin-top: 37.03px;
   margin-left: 32.25px;
-}
-#contact-search{
-
-
 }
 
 .search-form-control {
@@ -49,19 +47,23 @@
   width: 276px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
-  margin-left: 17px;
+  margin-left: -6px;
   border-radius: 50px;
 }
 
 .fas{
-  margin-right: 1380px;
+  // margin-right: 1380px;
+  color: black;
 }
 
 .form-btn{
   position: absolute;
-  right: -10px;
-  top: 7px;
-  color: #C4C4C4;
+  right: 0px;
+  top: 0px;
+  color: black;
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615305713/Vector_1_qidu3w.png");
+  // background-size: 100%;
+  z-index: 100;
 }
 
 .form-control{
@@ -69,4 +71,33 @@
   color: #C4C4C4;
 }
 
+
+.add-contact-btn {
+  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615307200/Group_29_cyli2r.png");
+  background-size: 100%;
+  height: 45px;
+  width: 53px;
+  border-radius: 7px;
+  border: solid #16C79A;
+  border-width: thin;
+  margin-top: 3px;
+
+
+}
+
+#search-contacts {
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615307200/Group_29_cyli2r.png");
+  // background-position: cover;
+  // height: 15px;
+  // width: 15px;
+  position: absolute;
+  left: -8px;
+  top: 0px;
+  z-index: 150;
+}
+
+#search-icon {
+ margin-left: 2px;
+ margin-top: 7px;
+}
 
