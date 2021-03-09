@@ -1,7 +1,7 @@
 import mapboxgl, { GeolocateControl } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import { data, event } from 'jquery';
+import { data, event, map } from 'jquery';
 
 const buildMap = (mapElement) => {
 	mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -70,11 +70,23 @@ const directionsSearchBar = (map) => {
 		geometries: 'geojson'
 	});
 
+	directions.on("destination", () => {
+		var list = document.querySelector(".mapbox-directions-steps")
+		if(list){
+			list.addEventListener("click", () => {
+			var id = document.querySelector("#reviewdestination");
+			console.log(id)
+			id.click();
+			});
+		}
+	});
+
 	map.scrollZoom.enable();
 	map.addControl(directions, 'top-right');
-
+	
 	obstacleData(map, directions);
 };
+
 
 const obstacleData = (map, directions) => {
 	var clearances = {
