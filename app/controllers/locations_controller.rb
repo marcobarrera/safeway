@@ -3,6 +3,16 @@ class LocationsController < ApplicationController
 	def show
   		@location = Location.find(params[:id])
 
+	    # @markers = @location.coordinates.geocoded.map do |location|
+	    #     # img = "robbery.png"
+	    #   {
+	    #     lat: location.latitude,
+	    #     lng: location.longitude,
+	    #     # infoWindow: render_to_string(partial: "info_window", locals: { alert: alert }),
+	    #     image_url: helpers.asset_url('https://cdn1.iconfinder.com/data/icons/outdoor-fun-filled-line/614/3981_-_Juggling_Balls-512.png')
+	    #   }
+	    # end
+
   	end
 
   	def create

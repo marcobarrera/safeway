@@ -3,10 +3,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { data, event } from 'jquery';
 
-const buildMap = (mapElement) => {
+const buildMap = (mapElement, id = 'map') => {
 	mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 	return new mapboxgl.Map({
-		container: 'map',
+		container: id,
 		style: 'mapbox://styles/mapbox/light-v10',
 		center: [ -118.243683, 34.052235 ],
 		zoom: 5
@@ -208,7 +208,7 @@ const routeCollisions = (map, directions, obstacle) => {
 const initMapbox = () => {
 	const mapElement = document.getElementById('map');
 	if (mapElement) {
-		const map = buildMap(mapElement);
+		const map = buildMap(mapElement, 'map');
 		const markers = JSON.parse(mapElement.dataset.markers);
 		addMarkersToMap(map, markers);
 		// fitMapToMarkers(map, markers);
@@ -221,4 +221,7 @@ const initMapbox = () => {
 	}
 };
 
-export { initMapbox };
+export { 
+	initMapbox,
+	buildMap
+	 };

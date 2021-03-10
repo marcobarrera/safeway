@@ -13,7 +13,7 @@ const share = () => {
 					headers: {'Content-Type': 'application/json'},
 					body: JSON.stringify(shareCoordinates)
 				}).then(response => response.json()).then(location => {
-					setTimeout(() => {
+					setInterval(() => {
 						console.log('coordinates');
 						navigator.geolocation.getCurrentPosition((data) => {
 							console.log(data);
