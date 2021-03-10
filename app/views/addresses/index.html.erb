@@ -5,6 +5,38 @@
 <hr>
 <h1 class="address-title">Saved places</h1>
 
+<div>
+  <div class= "name d-flex w-50">
+    <%= form_tag addresses_path, method: :get, class: "simple_form search", id: "contact-search" do %>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :query,
+                             params[:query],
+                             class: "form-control string required pl-5",
+                             placeholder: "Search" %>
+          <button id="search-address" name="button" type="submit" class="btn">
+            <img  id="search-icon" style=" height: 20px; width: 20px;" src="https://res.cloudinary.com/titavon/image/upload/v1615305713/Vector_1_qidu3w.png">
+          </button>
+        <% end %>
+      </div>
+
+    <div class="ml-2">
+      <%= link_to new_address_path do %>
+        <button type="button" class="add-contact-btn"></button>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+
 <% @addresses.each do |address| %>
-<%= address.label %>
+<hr>
+
+    <div class="each-address">
+      <%= address.label %>
+    </div>
+
+    <div class="address-description">
+      <%= address.address %>
+    </div>
+
 <% end %>
