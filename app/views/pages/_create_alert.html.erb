@@ -11,34 +11,61 @@
       </div>
 
       <div class="modal-body">
-        <div class="container">
-          <div class="row">
-            <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnRobbery" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+        <%= simple_form_for(Alert.new) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :address,
+                        required: true,
+                        autofocus: true %>
             </div>
+            <div class="container">
+              <div class="row">
+                <div class="px-3 col-6 d-flex justify-content-center">
+                  <input type="radio" value="robbery" id="Checkbox" name="alert[category]">
+                    <label for="Checkbox">
+                      <img id="btnRobbery" src="https://res.cloudinary.com/titavon/image/upload/v1615227258/Group_18_z41dxv.png">
+                    </label>
+                </div>
 
-             <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnFireArm" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+                 <div class="px-3 col-6 d-flex justify-content-center">
+                  <input type="radio" value="fire arm" id="Checkbox2" name="alert[category]">
+                    <label for="Checkbox2">
+                      <img id="btnFireArm" src="https://res.cloudinary.com/titavon/image/upload/v1615227258/Group_19_s9tesf.png">
+                    </label>
+                </div>
+
+                <div class="px-3 col-6 d-flex justify-content-center">
+                  <input type="radio" value="fight" id="Checkbox3" name="alert[category]">
+                    <label for="Checkbox3">
+                      <img id="btnFight" src="https://res.cloudinary.com/titavon/image/upload/v1615227198/Group_20_w1y3vb.png">
+                    </label>
+                 </div>
+
+                <div class="px-3 col-6 d-flex justify-content-center">
+                  <input type="radio" value="suspicious" id="Checkbox4" name="alert[category]">
+                    <label for="Checkbox4">
+                      <img id="btnSuspicious" src="https://res.cloudinary.com/titavon/image/upload/v1615227198/Group_21_cbsp1k.png">
+                    </label>
+                </div>
+
+                <div class="px-3 col-6 d-flex justify-content-center">
+                  <input type="radio" value="abuse" id="Checkbox5" name="alert[category]">
+                    <label for="Checkbox5">
+                      <img id="btnAbuse" src="https://res.cloudinary.com/titavon/image/upload/v1615227259/Group_22_ucgxrx.png">
+                    </label>
+                </div>
+
+                <div class="px-3 col-6 d-flex justify-content-center">
+                  <input type="radio" value="kidnap" id="Checkbox6" name="alert[category]">
+                    <label for="Checkbox6">
+                      <img id="btnKidnap" src="https://res.cloudinary.com/titavon/image/upload/v1615227259/Group_23_xt9gqv.png">
+                    </label>
+                </div>
+              </div>
+              <div class="btn-actions btn btn" >
+                <%= f.button :submit, "Create" %>
+              </div>
             </div>
-
-            <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnFight" type="button" class="btn border " style="width: 90px; height: 90px"></button>
-             </div>
-
-            <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnSuspicious" type="button" class="btn border " style="width: 90px; height: 90px"></button>
-            </div>
-
-            <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnAbuse" type="button" class="btn border " style="width: 90px; height: 90px"></button>
-            </div>
-
-            <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnKidnap" type="button" class="btn border " style="width: 90px; height: 90px"></button>
-            </div>
-          </div>
-        </div>
-        <button id="btnAlertPolice" type="button" class="btn"></button>
+        <%end%>
       </div>
 
     </div>

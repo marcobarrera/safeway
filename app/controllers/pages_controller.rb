@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @alert = Alert.new
     @alerts = Alert.all
     gon.alerts = Alert.all
 
