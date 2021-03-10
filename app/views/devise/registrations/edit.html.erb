@@ -4,7 +4,7 @@
 <br>
 <hr>
 
-<h1 class="edit-user">Edit <%= resource_name.to_s.humanize %></h1>
+<h1 class="edit-user"><%= resource_name.to_s.humanize %> profile</h1>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -37,7 +37,7 @@
     <!-- </div> -->
   </div>
 
-  <div id="edit-user-actions">
+  <div class="edit-btn-actions btn">
     <%= f.button :submit, "Update Profile" %>
   </div>
 <% end %>

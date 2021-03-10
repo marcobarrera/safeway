@@ -1,37 +1,27 @@
-.goback{
-  margin-top: 22px;
-}
-.create-contact{
+.title-new-address{
   font-family: "roboto", sans-serif;
   font-weight: bold;
   font-size: 30px;
   margin-top: 1px;
   margin-left: 30px;
   margin-bottom: 45px;
-
+  display: inline-block;
 }
 
-.form-inputs {
+.address-form-inputs{
   font-family: "roboto", sans-serif;
   font-size: 15px;
   height: 48px;
   width: 350px;
   margin-left: 8px;
-
 }
 
-.btn-actions {
+.address-btn-actions{
   font-family: "roboto", sans-serif;
   font-size: 15px;
-  margin-top: 330px;
-  margin-left: 135px;
+  margin-top: 125px;
+  margin-left: 132px;
   background-color: #16C79A;
   color: white;
   border-radius: 10px;
-}
-
-.is-emergency {
-  margin-left: 15px;
-  margin-top: 30px;
-
 }
