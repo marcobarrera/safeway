@@ -1,9 +1,14 @@
-<h2>Sign up</h2>
+<%= link_to root_path do %>
+  <img class="goback" src="https://res.cloudinary.com/titavon/image/upload/v1615237711/Vector_pdzyn9.png">
+<% end %>
+<br>
+<hr>
+<h1 class="signup-title">Sign up</h1>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="signup-form-inputs">
     <%= f.input :first_name,
                 required: true,
                 autofocus: true %>
@@ -29,9 +34,12 @@
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
-  <div class="form-actions">
+  <div class="signup-form-actions btn">
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="back-login">
+  <%= render "devise/shared/links" %>
+</div>
+
