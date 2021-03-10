@@ -70,15 +70,20 @@ const directionsSearchBar = (map) => {
 		geometries: 'geojson'
 	});
 
-	directions.on("destination", () => {
-		var list = document.querySelector(".mapbox-directions-steps")
+	directions.on("route", () => {
+		console.log("route")
+		var list = document.querySelector(".mapbox-directions-steps");
+		
 		if(list){
-			list.addEventListener("click", () => {
+			let routes = document.querySelectorAll(".mapbox-directions-route");	
+			let directions = list.querySelectorAll("li");
+			let lastDirection = directions[directions.length - 1]
+			lastDirection.addEventListener("click", () => {
 			var id = document.querySelector("#reviewdestination");
 			console.log(id)
 			id.click();
 			});
-		}
+		};
 	});
 
 	map.scrollZoom.enable();
