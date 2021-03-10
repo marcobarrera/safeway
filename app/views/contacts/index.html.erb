@@ -30,7 +30,7 @@
 </form> -->
 
   <% @contacts.each do |contact| %>
-    <div class= "contact-container d-flex justify-content-between w-25 p-2">
+    <button class= "contact-container d-flex justify-content-between w-25 p-2 contact" data-contact="<%= contact.id %>" data-user="<%= current_user.id if current_user %>">
       <div class= "name">
         <%= contact.first_name %>
         <%= contact.last_name %>
@@ -39,7 +39,7 @@
       <% if contact.emergency_contact == true %>
         <img class="contact-emergency" src="https://res.cloudinary.com/titavon/image/upload/v1615240825/Group_26_fnitto.png">
       <% end %>
-    </div>
+    </button>
   <% end %>
 </body>
 
