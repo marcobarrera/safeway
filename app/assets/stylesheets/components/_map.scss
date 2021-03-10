@@ -45,3 +45,6 @@
   //background-color: #16C79A !important;
 }
 
+.mapboxgl-ctrl-geocoder .geocoder-pin-right *.active {
+  display: none;
+}
