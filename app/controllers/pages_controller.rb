@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @alert = Alert.new
     @alerts = Alert.all
     gon.alerts = Alert.all
 
@@ -26,7 +27,7 @@ class PagesController < ApplicationController
         lat: alert.latitude,
         lng: alert.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { alert: alert }),
-        image_url: helpers.asset_url(img)
+        image_url: helpers.asset_url(img),
       }
     end
   end

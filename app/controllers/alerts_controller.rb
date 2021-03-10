@@ -1,8 +1,8 @@
-require 'json'
+require "json"
 
 class AlertsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:share_location, :notify]
-  #before_action :share_location, only: :notify
+  skip_before_action :verify_authenticity_token, only: %i[share_location notify]
+  # before_action :share_location, only: :notify
 
   def index
     @alerts = Alert.all
@@ -11,17 +11,12 @@ class AlertsController < ApplicationController
   def create
     @alert = Alert.new(alert_params)
     @alert.user = current_user
+    redirect_to root_path if @alert.save 
   end
 
   def update
     @alert = Alert.find(params[:id])
     @alert.update(alert_params)
-  end
-
-  def share_location
-    
-    #Alert.create!(longitude: params[:myLng], latitude: params[:myLat], user_id: current_user.id)
-    #send twilio message?
   end
 
   def notify
@@ -33,13 +28,13 @@ class AlertsController < ApplicationController
     client = Twilio::REST::Client.new(account_sid, auth_token)
     emergency_contacts = current_user.contacts.where(emergency_contact: true)
     from = '+14088316357' # Your Twilio number
-    # emergency_contacts.each do |contact|
+    emergency_contacts.each do |contact|
           client.messages.create(
             from: from,
-            to: '+13239015758', #contact.phone_number,
+            to: contact.phone_number,
             body: "Hey friend! I'm in trouble. My location is #{location_path(@location)}"
           )
-    # end
+    end
     Alert.create!(longitude: params[:myLng], latitude: params[:myLat], user_id: current_user.id)
   end
 

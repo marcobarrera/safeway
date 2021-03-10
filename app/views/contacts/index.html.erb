@@ -1,41 +1,47 @@
-<head>
- <%= link_to root_path do %>
+<%= link_to root_path do %>
   <img class="goback" src="https://res.cloudinary.com/titavon/image/upload/v1615237711/Vector_pdzyn9.png">
- <% end %>
+<% end %>
 
-</head>
+<br>
+
 <hr>
+
 <body>
   <h1 class="contacts">Contacts</h1>
-  <%= form_tag contacts_path, method: :get, class: "simple_form search", id: "contact-search" do %>
-        <div class="search-form-control form-group">
+
+<div>
+  <div class= "name d-flex w-50">
+    <%= form_tag contacts_path, method: :get, class: "simple_form search", id: "contact-search" do %>
+      <div class="search-form-control form-group">
         <%= text_field_tag :query,
-              params[:query],
-              class: "form-control string required pl-5",
-              placeholder: "Search"
-            %>
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="form-btn fas fa-search"></i>
-        </button>
-        </div>
-  <% end %>
-
-  <!-- <form id="contact-search" novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i>
-      </button>
-  </div>
-</form> -->
-
-  <% @contacts.each do |contact| %>
-    <button class= "contact-container d-flex justify-content-between w-25 p-2 contact" data-contact="<%= contact.id %>" data-user="<%= current_user.id if current_user %>">
-      <div class= "name">
-        <%= contact.first_name %>
-        <%= contact.last_name %>
+                             params[:query],
+                             class: "form-control string required pl-5",
+                             placeholder: "Search" %>
+          <button id="search-contacts" name="button" type="submit" class="btn">
+            <img  id="search-icon" style=" height: 20px; width: 20px;" src="https://res.cloudinary.com/titavon/image/upload/v1615305713/Vector_1_qidu3w.png">
+          </button>
+        <% end %>
       </div>
 
+    <div class="ml-2">
+      <%= link_to new_contact_path do %>
+        <button type="button" class="add-contact-btn"></button>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+  <% @contacts.each do |contact| %>
+    <hr>
+    <button class= "contact-container d-flex justify-content-between w-25 p-2 contact" data-contact="<%= contact.id %>" data-user="<%= current_user.id if current_user %>">
+      <div class= "name d-flex w-50">
+        <div>
+          <%= contact.first_name %>
+        </div>
+        <div class="ml-2">
+          <%= contact.last_name %>
+        </div>
+      </div>
       <% if contact.emergency_contact == true %>
         <img class="contact-emergency" src="https://res.cloudinary.com/titavon/image/upload/v1615240825/Group_26_fnitto.png">
       <% end %>

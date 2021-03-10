@@ -1,6 +1,6 @@
 #btnRobbery{
   border-radius: 7px;
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227258/Group_18_z41dxv.png");
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227258/Group_18_z41dxv.png");
   height: 90px;
   width: 90px;
   background-size: 100%;
@@ -8,66 +8,147 @@
 }
 
 #btnFireArm{
+  height: 90px;
+  width: 90px;
   border-radius: 7px;
   font-size: 15px;
   text-align: center;
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227258/Group_19_s9tesf.png");
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227258/Group_19_s9tesf.png");
   background-size: 100%;
   // margin-top: 0px;
 }
 #btnFight{
+  height: 90px;
+  width: 90px;
   border-radius: 7px;
   font-size: 15px;
   text-align: center;
   font-family: 'roboto',sans-serif;
   // margin-top: 19px;
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227198/Group_20_w1y3vb.png");
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227198/Group_20_w1y3vb.png");
   background-size: 100%;
   margin-bottom: 40px;
 }
 #btnSuspicious{
+  height: 90px;
+  width: 90px;
   border-radius: 7px;
   font-size: 15px;
   text-align: center;
   font-family: 'roboto',sans-serif;
   // margin-top: 20px;
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227198/Group_21_cbsp1k.png");
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227198/Group_21_cbsp1k.png");
   background-size: 100%;
 }
 #btnAbuse{
+  height: 90px;
+  width: 90px;
   border-radius: 7px;
   font-size: 15px;
   text-align: center;
   font-family: 'roboto',sans-serif;
   // margin-top: 20px;
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227259/Group_22_ucgxrx.png");
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227259/Group_22_ucgxrx.png");
   background-size: 100%;
 }
 #btnKidnap{
+  height: 90px;
+  width: 90px;
   border-radius: 7px;
   font-size: 15px;
   text-align: center;
   font-family: 'roboto',sans-serif;
   // margin-top: 20px;
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227259/Group_23_xt9gqv.png");
+  // background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615227259/Group_23_xt9gqv.png");
   background-size: 100%;
   margin-bottom: 20px;
 }
 
-#btnAlertPolice{
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  background-color: #de1125;
-  margin-left: 31.5%;
-  margin-top: 20px;
-  font-size: 15px;
-  text-align: center;
-  background-size: 100%;
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1615229701/Group_25_jmttvw.png");
-  background-size: 100%;
-}
-
 .alertRadius {
   border-radius: 9px;
+}
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio] + label[for=Checkbox] {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  border-radius: 7px;
+  width: 90px;
+  height: 90px;
+  background: #eeeeee;
+  color: #444;
+  cursor: pointer;
+}
+
+input[type=radio] + label[for=Checkbox2] {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  border-radius: 7px;
+  width: 90px;
+  height: 90px;
+  background: #eeeeee;
+  color: #444;
+  cursor: pointer;
+}
+
+input[type=radio] + label[for=Checkbox3] {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  border-radius: 7px;
+  width: 90px;
+  height: 90px;
+  background: #eeeeee;
+  color: #444;
+  cursor: pointer;
+}
+
+input[type=radio] + label[for=Checkbox4] {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  border-radius: 7px;
+  width: 90px;
+  height: 90px;
+  background: #eeeeee;
+  color: #444;
+  cursor: pointer;
+}
+
+input[type=radio] + label[for=Checkbox5] {
+  position: absolute;
+  top: 240px;
+  left: 20px;
+  border-radius: 7px;
+  width: 90px;
+  height: 90px;
+  background: #eeeeee;
+  color: #444;
+  cursor: pointer;
+}
+
+input[type=radio] + label[for=Checkbox6] {
+  position: absolute;
+  top: 240px;
+  left: 20px;
+  border-radius: 7px;
+  width: 90px;
+  height: 90px;
+  background: #eeeeee;
+  color: #444;
+  cursor: pointer;
+}
+
+input[type=radio] + label:hover {
+  background: #bebebe;
+}
+
+input[type=radio]:checked + label {
+  border: 3px solid #b8b8b8;
+  color: #f0f0f0;
+  animation: btn-color 0.5s ease-in-out;
 }

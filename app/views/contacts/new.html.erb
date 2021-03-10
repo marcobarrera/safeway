@@ -1,4 +1,11 @@
-<h2>Create new Contact</h2>
+ <%= link_to contacts_path do %>
+  <img class="goback" src="https://res.cloudinary.com/titavon/image/upload/v1615237711/Vector_pdzyn9.png">
+ <% end %>
+<br>
+
+<hr>
+
+<h1 class="create-contact">Create new Contact</h1>
 
 <%= simple_form_for(@contact) do |f| %>
   <div class="form-inputs">
@@ -14,13 +21,16 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true %>
+    <div class="is-emergency">
     <%= f.input :emergency_contact,
                 required: true,
                 autofocus: true %>
+    </div>
   </div>
 
 
-  <div class="form-actions">
+
+  <div class="btn-actions btn btn">
     <%= f.button :submit, "Create" %>
   </div>
 <% end %>

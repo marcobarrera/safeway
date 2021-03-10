@@ -7,6 +7,7 @@
 }
 
 #reviewModal {
+  margin-top: 45px;
   border-radius: 7px;
   font-family: 'roboto', sans-serif;
 }
@@ -23,7 +24,7 @@
 
 .modal-header {
   border-bottom: none;
-  padding-top: 20px !important;
+  padding-top: 20px;
   padding-bottom: 0px;
 }
 
@@ -46,4 +47,10 @@
 
 .modal-content {
   margin-top: 50px;
+}
+
+#reviewdestination {
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
 }

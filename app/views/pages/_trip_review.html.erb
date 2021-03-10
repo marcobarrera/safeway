@@ -1,9 +1,5 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
-  Trip review
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+<div class="modal fade review" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="reviewRadius modal-content">
       <div class="tripReviewGreen modal-header">
@@ -14,11 +10,13 @@
       <div class="modal-body">
         <h5 class="modal-title" id="reviewModalLabel">How was your trip?</h5>
         <div class="buttons-review">
-          <button class="btn btn-primary" id="btnGood" type="button">Good!</button>
-          <button class="btn btn-secondary" id="btnUnsafe" type="button">Unsafe</button>
+          <button class="btn btn-primary" id="btnGood" data-dismiss="modal" type="button">Good!</button>
+          <button class="btn btn-secondary" id="btnUnsafe" type="button" data-toggle="modal" data-target="#createAlertModal">Unsafe</button>
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
+<%= render "create_alert" %>

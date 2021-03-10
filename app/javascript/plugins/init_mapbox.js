@@ -1,7 +1,7 @@
 import mapboxgl, { GeolocateControl } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import { data, event } from 'jquery';
+import { data, event, map } from 'jquery';
 
 const buildMap = (mapElement, id = 'map') => {
 	mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -73,11 +73,28 @@ const directionsSearchBar = (map) => {
 		geometries: 'geojson'
 	});
 
+	directions.on("route", () => {
+		console.log("route")
+		var list = document.querySelector(".mapbox-directions-steps");
+		
+		if(list){
+			let routes = document.querySelectorAll(".mapbox-directions-route");	
+			let directions = list.querySelectorAll("li");
+			let lastDirection = directions[directions.length - 1]
+			lastDirection.addEventListener("click", () => {
+			var id = document.querySelector("#reviewdestination");
+			console.log(id)
+			id.click();
+			});
+		};
+	});
+
 	map.scrollZoom.enable();
 	map.addControl(directions, 'top-right');
-
+	
 	obstacleData(map, directions);
 };
+
 
 const obstacleData = (map, directions) => {
 	var clearances = {
@@ -178,7 +195,7 @@ const routeCollisions = (map, directions, obstacle) => {
 				routeDetail['detail'] = 'goes';
 				emoji = '⚠️';
 				report.className = 'item warning';
-				map.setPaintProperty('route' + e.id, 'line-color', '#de2d26');
+				map.setPaintProperty('route' + e.id, 'line-color', '#DD0018');
 			}
 
 			//Add a new report section to the sidebar.
