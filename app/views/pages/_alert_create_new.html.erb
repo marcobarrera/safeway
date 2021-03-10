@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="createAlertnewModal" tabindex="-1" aria-labelledby="createAlernewtLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="alertRadius modal-content">
+      <div class="modal-header alertHeader">
+        <h5 class="modal-title" id="createAlertLabel">Create alert!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for(Alert.new) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :category,
+                        required: true,
+                        autofocus: true %>
+            <%= f.input :address,
+                        required: true,
+                        autofocus: true %>
+            </div>
+  
+            <div class="btn-actions btn btn">
+              <%= f.button :submit, "Create" %>
+            </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,33 +12,43 @@
 
       <div class="modal-body">
         <div class="container">
-          <div class="row">
+        <%= simple_form_for(Alert.new) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :address,
+                        required: true,
+                        autofocus: true %>
+            </div>
+            <div class="row">
             <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnRobbery" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+              <button id="btnRobbery" type="button" class="btn border " data-toggle="modal" data-target="#createAlertnewModal" style="width: 90px; height: 90px"></button>
             </div>
 
              <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnFireArm" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+              <button id="btnFireArm" type="button" class="btn border " data-toggle="modal" data-target="#createAlertnewModal" style="width: 90px; height: 90px"></button>
             </div>
 
             <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnFight" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+              <button id="btnFight" type="button" class="btn border " data-toggle="modal" data-target="#createAlertnewModal" style="width: 90px; height: 90px"></button>
              </div>
 
             <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnSuspicious" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+              <button id="btnSuspicious" type="button" class="btn border " data-toggle="modal" data-target="#createAlertnewModal" style="width: 90px; height: 90px"></button>
             </div>
 
             <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnAbuse" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+              <button id="btnAbuse" type="button" class="btn border " data-toggle="modal" data-target="#createAlertnewModal" style="width: 90px; height: 90px"></button>
             </div>
 
             <div class="px-3 col-6 d-flex justify-content-center">
-              <button id="btnKidnap" type="button" class="btn border " style="width: 90px; height: 90px"></button>
+              <button id="btnKidnap" type="button" class="btn border " data-toggle="modal" data-target="#createAlertnewModal" style="width: 90px; height: 90px"></button>
             </div>
           </div>
+            <div class="btn-actions btn btn">
+              <%= f.button :submit, "Create" %>
+            </div>
+        <%end%>
+          
         </div>
-        <button id="btnAlertPolice" type="button" class="btn"></button>
       </div>
 
     </div>
