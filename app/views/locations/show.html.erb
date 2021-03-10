@@ -1,0 +1,11 @@
+<h1>#<%= @location.name %></h1>
+<div id="coordinates" data-location-id="<%= @location.id %>">
+  <% @location.coordinates.each do |coords| %>
+    <div class="coords-container" id="coords-<%= coords.id %>">
+      <i class="user">
+        <span><%= coords.latitude %></span>
+        <span><%= coords.longitude %></span>
+      </i>
+    </div>
+  <% end %>
+</div>

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :alerts, only: [:create, :index, :update] do
     collection do
       post "notify" => "alerts#notify", :as => :notify
-      post "share_location" => "alerts#share_location", :as => :share_location
     end
+  end
+  resources :locations, only: [:show, :create] do
+    resources :coordinates, only: :create
   end
 end

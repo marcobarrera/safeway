@@ -13,6 +13,9 @@ const buildMap = (mapElement) => {
 	});
 };
 
+
+
+
 const addMarkersToMap = (map, markers) => {
 	markers.forEach((marker) => {
 		const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -98,6 +101,8 @@ const obstacleData = (map, directions) => {
 	routeCollisions(map, directions, obstacle);
 };
 
+//1. Send location on click
+//2. get the location of a specific person
 const routeDisplay = (map) => {
 	map.on('load', function(e) {
 		//Create sources and layers for the returned routes.
