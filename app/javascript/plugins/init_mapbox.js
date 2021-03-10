@@ -3,15 +3,18 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { data, event, map } from 'jquery';
 
-const buildMap = (mapElement) => {
+const buildMap = (mapElement, id = 'map') => {
 	mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 	return new mapboxgl.Map({
-		container: 'map',
+		container: id,
 		style: 'mapbox://styles/mapbox/light-v10',
 		center: [ -118.243683, 34.052235 ],
 		zoom: 5
 	});
 };
+
+
+
 
 const addMarkersToMap = (map, markers) => {
 	markers.forEach((marker) => {
@@ -115,6 +118,8 @@ const obstacleData = (map, directions) => {
 	routeCollisions(map, directions, obstacle);
 };
 
+//1. Send location on click
+//2. get the location of a specific person
 const routeDisplay = (map) => {
 	map.on('load', function(e) {
 		//Create sources and layers for the returned routes.
@@ -220,7 +225,7 @@ const routeCollisions = (map, directions, obstacle) => {
 const initMapbox = () => {
 	const mapElement = document.getElementById('map');
 	if (mapElement) {
-		const map = buildMap(mapElement);
+		const map = buildMap(mapElement, 'map');
 		const markers = JSON.parse(mapElement.dataset.markers);
 		addMarkersToMap(map, markers);
 		// fitMapToMarkers(map, markers);
@@ -233,4 +238,7 @@ const initMapbox = () => {
 	}
 };
 
-export { initMapbox };
+export { 
+	initMapbox,
+	buildMap
+	 };

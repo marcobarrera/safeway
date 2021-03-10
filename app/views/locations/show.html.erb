@@ -1,0 +1,7 @@
+<div 
+	id="coordinates" 
+	data-location-id="<%= @location.id %>"
+	data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>" 
+	data-markers="<%= @markers.to_json %>"
+	style="width: 100%; height: 100vh;"
+	></div>

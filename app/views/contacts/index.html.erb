@@ -31,23 +31,22 @@
   </div>
 </div>
 
-<% @contacts.each do |contact| %>
-  <hr>
-  <div class= "contact-container d-flex justify-content-between w-25 p-2">
-    <div class= "name d-flex w-50">
-      <div>
-        <%= contact.first_name %>
+  <% @contacts.each do |contact| %>
+    <hr>
+    <button class= "contact-container d-flex justify-content-between w-25 p-2 contact" data-contact="<%= contact.id %>" data-user="<%= current_user.id if current_user %>">
+      <div class= "name d-flex w-50">
+        <div>
+          <%= contact.first_name %>
+        </div>
+        <div class="ml-2">
+          <%= contact.last_name %>
+        </div>
       </div>
-      <div class="ml-2">
-        <%= contact.last_name %>
-      </div>
-    </div>
-
-    <% if contact.emergency_contact == true %>
-      <img class="contact-emergency" src="https://res.cloudinary.com/titavon/image/upload/v1615240825/Group_26_fnitto.png">
-    <% end %>
-  </div>
-<% end %>
+      <% if contact.emergency_contact == true %>
+        <img class="contact-emergency" src="https://res.cloudinary.com/titavon/image/upload/v1615240825/Group_26_fnitto.png">
+      <% end %>
+    </button>
+  <% end %>
 </body>
 
 

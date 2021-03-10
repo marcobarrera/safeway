@@ -20,6 +20,19 @@ const emergency = () => {
 					method: 'post',
 					headers: {'Content-Type': 'application/json'},
 					body: JSON.stringify(emergencyCoordinates)
+				}).then(response => response.json()).then(location => {
+					setInterval(() => {
+						console.log('coordinates');
+						navigator.geolocation.getCurrentPosition((data) => {
+							console.log(data);
+						let coordinates = {lat: data.coords.latitude, lng: data.coords.longitude, locationId: location.id};
+							fetch(`/locations/${location.id}/coordinates`, {
+							method: 'post',
+							headers: {'Content-Type': 'application/json'},
+							body: JSON.stringify(coordinates)
+							})
+						})
+					}, 5000)
 				})
 			});
 			// debugger

@@ -28,9 +28,13 @@
     </div>
 
     <div class="my-location">
-      <button id="myLocation" class="btn"></button>
+      <%= link_to  contacts_path do %> 
+       <button id="myLocation" class="btn" data-user="<%= current_user.id if current_user %>"></button>
+       <% end  %>
     </div>
   </div>
 </div>
 
+
 <%= render "create_alert", alert: @alert%>
+

@@ -28,8 +28,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { initMapbox } from '../plugins/init_mapbox';
 import { emergency } from '../plugins/emergency_alert';
+import { initLocationCable } from '../channels/location_channel';
+import { share } from '../plugins/share_location';
 
 document.addEventListener('turbolinks:load', () => {
 	emergency();
-	initMapbox();	
+	initMapbox();
+	initLocationCable();
+	share();	
 });
