@@ -29,7 +29,7 @@ class LocationsController < ApplicationController
       client.messages.create(
         from: from,
         to: @contact.phone_number,
-        body: "Hey friend! I'm on the way. My location is https://sway.com#{location_path(@location)}",
+        body: "Hey friend! I'm on the way. My location is https://www.safeway.link#{location_path(@location)}",
       )
     end
   end
