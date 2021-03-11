@@ -18,8 +18,8 @@
 
 #search-address {
   position: absolute;
-  left: -8px;
-  top: 0px;
+  left: 15px;
+  top: 159px;
   z-index: 150;
 }
 
@@ -30,3 +30,13 @@
   font-color: #C4C4C4;
   margin-left: 24px;
 }
+
+.address-search-form-control{
+  width: 276px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+  margin-left: -6px;
+  border-radius: 50px;
+  margin-top: 6px;
+}
+
