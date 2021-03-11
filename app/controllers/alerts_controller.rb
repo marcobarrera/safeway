@@ -32,7 +32,7 @@ class AlertsController < ApplicationController
       client.messages.create(
         from: from,
         to: contact.phone_number,
-        body: "Hey friend! I'm in trouble. My location is #{location_path(@location)}",
+        body: "Hey friend! I'm in trouble. My location is https://www.safeway.link#{location_path(@location)}",
       )
     end
     Alert.create!(longitude: params[:myLng], latitude: params[:myLat], user_id: current_user.id)
