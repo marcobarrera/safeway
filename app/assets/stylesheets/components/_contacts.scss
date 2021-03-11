@@ -21,7 +21,8 @@
 .contact-emergency {
   width:30px;
   height: 30px;
-  margin-left: 243px;
+  margin-left: 300px;
+  position:absolute;
 }
 
 .goback {
@@ -81,6 +82,7 @@
   margin-top: 3px;
 
 
+
 }
 
 #search-contacts {
@@ -99,6 +101,18 @@
 
 .contact-container {
   border: none;
+  transition-duration: 0.1s;
 }
+
+.contact-container:hover{
+  color:#16C79A;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+
+}
+
+
 
 
