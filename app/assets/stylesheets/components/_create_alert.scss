@@ -67,6 +67,40 @@
 .alertRadius {
   border-radius: 9px;
 }
+
+.modal-alert-title{
+  font-family: "roboto", sans-serif;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.alert-form-inputs{
+  height: 95px;
+  width: 322px;
+  margin-left: -4px;
+  font-family: "roboto", sans-serif;
+  font-size: 15px;
+  position: center;
+
+
+
+}
+
+.alert-container{
+  margin-left:27px;
+  margin-top: -39px;
+}
+
+.alert-btn-actions{
+  margin-left: 83px;
+  margin-top: 374px;
+  background-color: #16C79A;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: "roboto", sans-serif;
+
+}
+
 input[type=radio] {
   display: none;
 }

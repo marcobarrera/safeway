@@ -12,7 +12,7 @@
 <div>
   <div class= "name d-flex w-50">
     <%= form_tag contacts_path, method: :get, class: "simple_form search", id: "contact-search" do %>
-      <div class="search-form-control form-group">
+      <div class="search-contacts-form-control form-group">
         <%= text_field_tag :query,
                            params[:query],
                            class: "form-control string required pl-5",

@@ -1,0 +1,76 @@
+.login-modal-title {
+  font-family: "roboto", sans-serif;
+  font-size: 16px !important;
+  font-weight: 100;
+  color: #505050 !important;
+  margin-left: 30px;
+  margin-top: -18px;
+
+}
+
+.log-modal-dialog{
+  height:90vh;
+}
+
+.login-modal-header {
+  border-bottom: none;
+  padding-top: 10px;
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+.log-form-inputs {
+  font-family: "roboto", sans-serif;
+  font-size: 18px;
+  color: #505050;
+  width: 315px;
+  margin-top: 63px;
+  margin-left:8px;
+}
+
+.required {
+  padding-left: 10px;
+}
+
+abbr[title] {
+  display: none;
+}
+
+.log-btn {
+  color: black;
+  background-color: #16C79A;
+  border-radius: 10px;
+  border-color: #16C79A;
+  margin-left:26px;
+
+}
+
+.log-form-actions {
+  margin-left: 103px;
+  margin-top: 37px;
+}
+
+.log-close{
+  margin-left: 337px;
+  margin-top: 1px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+
+}
+
+.login-container {
+  padding-top: 15px;
+  // padding-bottom: 15px;
+}
+
+.loginicon{
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}

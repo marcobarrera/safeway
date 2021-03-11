@@ -4,7 +4,7 @@
   <div class="modal-dialog modal-sm">
     <div class="alertRadius modal-content">
       <div class="modal-header alertHeader">
-        <h5 class="modal-title" id="createAlertLabel">Create alert!</h5>
+        <h5 class="modal-alert-title" id="createAlertLabel">Create alert!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,12 +12,12 @@
 
       <div class="modal-body">
         <%= simple_form_for(Alert.new) do |f| %>
-          <div class="form-inputs">
+          <div class="alert-form-inputs">
             <%= f.input :address,
                         required: true,
                         autofocus: true %>
             </div>
-            <div class="container">
+            <div class="alert-container">
               <div class="row">
                 <div class="px-3 col-6 d-flex justify-content-center">
                   <input type="radio" value="robbery" id="Checkbox" name="alert[category]">
@@ -61,7 +61,7 @@
                     </label>
                 </div>
               </div>
-              <div class="btn-actions btn btn" >
+              <div class="alert-btn-actions btn btn" >
                 <%= f.button :submit, "Create" %>
               </div>
             </div>

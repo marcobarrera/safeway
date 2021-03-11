@@ -42,13 +42,13 @@
   right: 8px;
 }
 
-.search-form-control .form-control {
-  height: 48px;
+.search-contacts-form-control .form-control {
   width: 276px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
   margin-left: -6px;
   border-radius: 50px;
+  margin-top: 6px;
 }
 
 .fas{
@@ -66,6 +66,7 @@
 .form-control{
   font-family: "roboto", sans-serif;
   color: #C4C4C4;
+
 }
 
 
@@ -84,13 +85,20 @@
 
 #search-contacts {
   position: absolute;
-  left: -8px;
-  top: 0px;
+  left: 14px;
+  top: 146px;
   z-index: 150;
+
 }
 
 #search-icon {
  margin-left: 2px;
  margin-top: 7px;
 }
+
+
+.contact-container {
+  border: none;
+}
+
 
