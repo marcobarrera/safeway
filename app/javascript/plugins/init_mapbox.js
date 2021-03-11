@@ -114,7 +114,7 @@ const obstacleData = (map, directions) => {
 		}
 	}
 
-	var obstacle = turf.buffer(clearances, 0.03, { units: 'kilometers' });
+	var obstacle = turf.buffer(clearances, 0.05, { units: 'kilometers' });
 	routeCollisions(map, directions, obstacle);
 };
 
