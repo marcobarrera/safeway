@@ -13,7 +13,6 @@ class LocationsController < ApplicationController
     #     image_url: helpers.asset_url('https://cdn1.iconfinder.com/data/icons/outdoor-fun-filled-line/614/3981_-_Juggling_Balls-512.png')
     #   }
     # end
-
   end
 
   def create
@@ -29,7 +28,7 @@ class LocationsController < ApplicationController
       client.messages.create(
         from: from,
         to: @contact.phone_number,
-        body: "Hey friend! It's #{current_user.first_name} #{current_user.last_name}. I'm on the way. My location is https://www.safeway.link#{location_path(@location)}",
+        body: "Hey friend! It's #{current_user.first_name} #{current_user.last_name}. I'm on the way. My location is https://www.safeway.link#{location_path(@location)}"
       )
     end
   end
