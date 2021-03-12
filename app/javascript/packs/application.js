@@ -30,10 +30,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { emergency } from '../plugins/emergency_alert';
 import { initLocationCable } from '../channels/location_channel';
 import { share } from '../plugins/share_location';
-
+// import {checkParams} from '../plugins/sidebar';
 document.addEventListener('turbolinks:load', () => {
 	const map = initMapbox();
 	emergency(map);
 	initLocationCable();
 	share();
+  // checkParams();
 });
