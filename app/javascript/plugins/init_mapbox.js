@@ -229,7 +229,10 @@ const initMapbox = () => {
 		directionsSearchBar(map);
 
 		routeDisplay(map);
+
+		return map;
 	}
+	return null;
 };
 
 export { initMapbox, buildMap };
