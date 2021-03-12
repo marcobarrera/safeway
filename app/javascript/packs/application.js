@@ -32,8 +32,8 @@ import { initLocationCable } from '../channels/location_channel';
 import { share } from '../plugins/share_location';
 
 document.addEventListener('turbolinks:load', () => {
-	emergency();
-	initMapbox();
+	const map = initMapbox();
+	emergency(map);
 	initLocationCable();
-	share();	
+	share();
 });
