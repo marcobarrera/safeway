@@ -1,106 +1,107 @@
-#sidebar-button{
-  background-image: url("https://res.cloudinary.com/titavon/image/upload/v1614968816/sidebar_zdtiad.png");
-  background-size: 100%;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  margin-left: 26px;
-  margin-top: 29px;
+#sidebar-button {
+    background-image: url("https://res.cloudinary.com/titavon/image/upload/v1614968816/sidebar_zdtiad.png");
+    background-size: 100%;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-left: 26px;
+    margin-top: 29px;
+    box-shadow: none;
 }
 
-.modal-content{
-  border-radius: 20px;
+.modal-content {
+    border-radius: 20px;
 }
 
 .smiley {
-  width: 100px;
-  height: 100px;
-  margin: auto;
+    width: 100px;
+    height: 100px;
+    margin: auto;
 }
 
-.smiley-container{
-  padding-top: 30px;
-  padding-bottom: 50px;
+.smiley-container {
+    padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 .welcome {
-  padding-top: 10px;
-  text-align: center;
-  font-family: "roboto", sans-serif;
-  font-size: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-family: "roboto", sans-serif;
+    font-size: 20px;
 }
 
 a {
-  font-family: "roboto", sans-serif;
-  font-size: 20px;
-  font-weight: 100;
-  color: #505050 !important;
+    font-family: "roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    color: #505050 !important;
 }
 
 ul {
-  padding-left: 0px;
-  list-style-type: none;
+    padding-left: 0px;
+    list-style-type: none;
 }
 
 .sidebar-icons {
-  padding-right: 10px;
-  margin-bottom: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
 }
 
 #contact {
-  padding-right: 9px;
-  width: 36px;
-  height: 28px;
+    padding-right: 9px;
+    width: 36px;
+    height: 28px;
 }
 
 #saved {
-  padding-right: 9px;
-  width: 37px;
-  height: 28px;
+    padding-right: 9px;
+    width: 37px;
+    height: 28px;
 }
 
 #profile {
-  margin-right: 5px;
-  height: 23px;
-  width: 33px;
-  margin-bottom: 13px;
+    margin-right: 5px;
+    height: 23px;
+    width: 33px;
+    margin-bottom: 13px;
 }
 
 #alert {
-  margin-right: 5px;
-  height: 23px;
-  width: 33px;
-  margin-bottom: 12px;
+    margin-right: 5px;
+    height: 23px;
+    width: 33px;
+    margin-bottom: 12px;
 }
 
 #logout {
-  position: relative ;
-  margin-right: 5px;
-  height: 23px;
-  width: 33px;
-  margin-bottom: 12px;
+    position: relative;
+    margin-right: 5px;
+    height: 23px;
+    width: 33px;
+    margin-bottom: 12px;
 }
 
 .logout {
-  position: relative;
-  bottom: 37px;
-  left: 10px;
+    position: relative;
+    bottom: 37px;
+    left: 10px;
 }
 
 .buttons-center {
-  margin-left: 67px;
-  margin-top: 30px;
-  margin-bottom: 20px;
+    margin-left: 67px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .btn-secondary {
-  color: black;
-  background-color: #ffff;
-  border-radius: 10px;
-  border-color: #16C79A;
+    color: black;
+    background-color: #ffff;
+    border-radius: 10px;
+    border-color: #16C79A;
 }
 
 .my-header {
-  margin-right: 8px;
-  margin-top: 7px;
+    margin-right: 8px;
+    margin-top: 7px;
 }
