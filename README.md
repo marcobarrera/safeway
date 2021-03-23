@@ -16,6 +16,7 @@ For development, you will need ruby on rails, node, and yarn installed on your e
 - HTML
 - CSS
 - JavaScript
+- PostgreSQL
 
 ## Install
 
